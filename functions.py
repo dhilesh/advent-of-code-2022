@@ -33,3 +33,23 @@ def rock_paper_scissors_score(file, question_part):
             my_decision = decision_dict[opp_choice][result]
             score += choice_score[my_decision] + outcome_dict[ f'{opp_choice} {my_decision}' ]
     return score
+
+def rucksack_priority(file):
+    base_letters = 'abcdefghijklmnopqrstuvwxyz'
+    all_letters = base_letters + base_letters.upper()
+    all_numbers = [x for x in range(1,53)]
+    sum_priority = 0
+
+    for line in read_input(file):        
+        line = line.strip()
+        halfway_index = int((len(line)/2))
+        compartment1, compartment2 = line[:halfway_index], line[halfway_index:]
+        intersect_letter = list(set(compartment1).intersection(set(compartment2)))[0]
+        sum_priority += all_numbers[all_letters.find(intersect_letter)]
+        
+    print(sum_priority)
+    return sum_priority
+
+    
+
+

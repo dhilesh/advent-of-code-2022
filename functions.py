@@ -47,7 +47,21 @@ def rucksack_priority(file):
         intersect_letter = list(set(compartment1).intersection(set(compartment2)))[0]
         sum_priority += all_numbers[all_letters.find(intersect_letter)]
         
-    print(sum_priority)
+    return sum_priority
+
+def common_badge_priority(file):
+    base_letters = 'abcdefghijklmnopqrstuvwxyz'
+    all_letters = base_letters + base_letters.upper()
+    all_numbers = [x for x in range(1,53)]
+    sum_priority = 0
+    rucksacks = []
+
+    for line in read_input(file):
+        rucksacks.append(set(line.strip()))
+        if len(rucksacks) == 3:
+            intersect_letter = list(rucksacks[0].intersection(rucksacks[1]).intersection(rucksacks[2]))[0]
+            sum_priority += all_numbers[all_letters.find(intersect_letter)]
+            rucksacks = [] # reset
     return sum_priority
 
     

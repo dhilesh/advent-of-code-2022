@@ -15,5 +15,9 @@ if __name__ == "__main__":
     # print(f'Day 2 Part 1 \n The score with the first strategy is {day2_pt1_answer}')
     # print(f'Day 2 Part 2 \n The score with the second strategy is {day2_pt2_answer}')
 
-
-    rucksack_priority('puzzle-inputs/rucksacks.txt')
+    # Day 3
+    print('\n---------------\n')
+    day3_pt1_answer = rucksack_priority('puzzle-inputs/rucksacks.txt')
+    day3_pt2_answer = common_badge_priority('puzzle-inputs/rucksacks.txt')
+    print(f'Day 3 Part 1 \n The sum of priorities for the misplaced items is {day3_pt1_answer}')
+    print(f'Day 3 Part 2 \n The sum of priotities for the common badges is {day3_pt2_answer}')

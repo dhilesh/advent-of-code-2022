@@ -16,8 +16,15 @@ if __name__ == "__main__":
     # print(f'Day 2 Part 2 \n The score with the second strategy is {day2_pt2_answer}')
 
     # Day 3
+    # print('\n---------------\n')
+    # day3_pt1_answer = rucksack_priority('puzzle-inputs/rucksacks.txt')
+    # day3_pt2_answer = common_badge_priority('puzzle-inputs/rucksacks.txt')
+    # print(f'Day 3 Part 1 \n The sum of priorities for the misplaced items is {day3_pt1_answer}')
+    # print(f'Day 3 Part 2 \n The sum of priotities for the common badges is {day3_pt2_answer}')
+    
+    # Day 4
     print('\n---------------\n')
-    day3_pt1_answer = rucksack_priority('puzzle-inputs/rucksacks.txt')
-    day3_pt2_answer = common_badge_priority('puzzle-inputs/rucksacks.txt')
-    print(f'Day 3 Part 1 \n The sum of priorities for the misplaced items is {day3_pt1_answer}')
-    print(f'Day 3 Part 2 \n The sum of priotities for the common badges is {day3_pt2_answer}')
+    day4_pt1_answer = find_redudant_cleaning_pairs('puzzle-inputs/cleanup-pairs.txt',1)
+    day4_pt2_answer = find_redudant_cleaning_pairs('puzzle-inputs/cleanup-pairs.txt',2)
+    print(f'Day 4 Part 1 \n The sum of fully overlapping sections is {day4_pt1_answer}')
+    print(f'Day 4 Part 2 \n The sum of fully and partially overlapping sections is {day4_pt2_answer}')

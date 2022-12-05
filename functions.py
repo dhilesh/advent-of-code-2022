@@ -64,6 +64,20 @@ def common_badge_priority(file):
             rucksacks = [] # reset
     return sum_priority
 
-    
+def find_redudant_cleaning_pairs(file, question_part):
+    redundant_count = 0
+    for line in read_input(file):
+        line = line.strip()
+        elf1_section, elf2_section = line.split(',')[0], line.split(',')[1]       
+        elf1_min, elf1_max = int(elf1_section.split('-')[0]), int(elf1_section.split('-')[1])
+        elf2_min, elf2_max = int(elf2_section.split('-')[0]), int(elf2_section.split('-')[1])
+        if question_part==1:
+            if ((elf1_min <= elf2_min and elf1_max >= elf2_max) or (elf2_min <= elf1_min and elf2_max >= elf1_max)):
+                redundant_count += 1
+        else:
+            if len(list(set([x for x in range(elf1_min,elf1_max+1)]).intersection(set([x for x in range(elf2_min,elf2_max+1)])))) > 0:
+                redundant_count += 1
+
+    print(redundant_count) 
 
 

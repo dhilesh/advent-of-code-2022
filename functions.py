@@ -78,6 +78,37 @@ def find_redudant_cleaning_pairs(file, question_part):
             if len(list(set([x for x in range(elf1_min,elf1_max+1)]).intersection(set([x for x in range(elf2_min,elf2_max+1)])))) > 0:
                 redundant_count += 1
 
-    print(redundant_count) 
+    return redundant_count 
 
+def find_crates_on_top(file, crate_model):
+    start_state = {
+        '1': ['H','R','B','D','Z','F','L','S'],
+        '2': ['T','B','M','Z','R'],
+        '3': ['Z','L','C','H','N','S'],
+        '4': ['S','C','F','J'],
+        '5': ['P','G','H','W','R','Z','B'],
+        '6': ['V','J','Z','G','D','N','M','T'],
+        '7': ['G','L','N','W','F','S','P','Q'],
+        '8': ['M','Z','R'],
+        '9': ['M','C','L','G','V','R','T'],
+    }
 
+    for line in read_input(file)[10:]:
+        items = line.split(' ')
+        num_to_move = items[1].strip()
+        from_move = items[3].strip()
+        to_move = items[5].strip()
+
+        if crate_model == '3000':
+            for i in range(0, int(num_to_move)):
+                start_state[to_move].append( start_state[from_move].pop() )
+        else:
+            for i in start_state[from_move][-int(num_to_move):]:
+                start_state[to_move].append( i )
+            start_state[from_move] = start_state[from_move][:-int(num_to_move)]
+    
+    top_letters = ''
+    for v in start_state.values():
+        top_letters += v.pop()
+    
+    return top_letters

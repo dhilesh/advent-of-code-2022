@@ -23,8 +23,15 @@ if __name__ == "__main__":
     # print(f'Day 3 Part 2 \n The sum of priotities for the common badges is {day3_pt2_answer}')
     
     # Day 4
+    # print('\n---------------\n')
+    # day4_pt1_answer = find_redudant_cleaning_pairs('puzzle-inputs/cleanup-pairs.txt',1)
+    # day4_pt2_answer = find_redudant_cleaning_pairs('puzzle-inputs/cleanup-pairs.txt',2)
+    # print(f'Day 4 Part 1 \n The sum of fully overlapping sections is {day4_pt1_answer}')
+    # print(f'Day 4 Part 2 \n The sum of fully and partially overlapping sections is {day4_pt2_answer}')
+    
+    # Day 5
     print('\n---------------\n')
-    day4_pt1_answer = find_redudant_cleaning_pairs('puzzle-inputs/cleanup-pairs.txt',1)
-    day4_pt2_answer = find_redudant_cleaning_pairs('puzzle-inputs/cleanup-pairs.txt',2)
-    print(f'Day 4 Part 1 \n The sum of fully overlapping sections is {day4_pt1_answer}')
-    print(f'Day 4 Part 2 \n The sum of fully and partially overlapping sections is {day4_pt2_answer}')
+    day5_pt1_answer = find_crates_on_top('puzzle-inputs/crate-instructions.txt','3000')
+    day5_pt2_answer = find_crates_on_top('puzzle-inputs/crate-instructions.txt','3001')
+    print(f'Day 4 Part 1 \n The letter combination of crates at the top of each pile is {day5_pt1_answer}')
+    print(f'Day 4 Part 2 \n The letter combination of crates at the top of each pile is {day5_pt2_answer}')

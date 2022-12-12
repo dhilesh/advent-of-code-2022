@@ -112,3 +112,10 @@ def find_crates_on_top(file, crate_model):
         top_letters += v.pop()
     
     return top_letters
+
+def packet_marker(file, num_distinct_chars=0):
+    datastream = read_input(file)[0]
+    for i in range(num_distinct_chars,len(datastream)):
+        window = datastream[i-num_distinct_chars:i]
+        if len(set(window)) == num_distinct_chars:
+            return i

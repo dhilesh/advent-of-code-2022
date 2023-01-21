@@ -37,8 +37,15 @@ if __name__ == "__main__":
     # print(f'Day 5 Part 2 \n The letter combination of crates at the top of each pile is {day5_pt2_answer}')
     
     # Day 6
+    # print('\n---------------\n')
+    # day6_pt1_answer = packet_marker('puzzle-inputs/datastream.txt',4)
+    # day6_pt2_answer = packet_marker('puzzle-inputs/datastream.txt',14)
+    # print(f'Day 6 Part 1 \n The first packet was received at character number {day6_pt1_answer}')
+    # print(f'Day 6 Part 2 \n The first message was received at character number {day6_pt2_answer}')
+    
+    # Day 7
     print('\n---------------\n')
-    day6_pt1_answer = packet_marker('puzzle-inputs/datastream.txt',4)
-    day6_pt2_answer = packet_marker('puzzle-inputs/datastream.txt',14)
-    print(f'Day 6 Part 1 \n The first packet was received at character number {day6_pt1_answer}')
-    print(f'Day 6 Part 2 \n The first message was received at character number {day6_pt2_answer}')
+    day7_pt1_answer = create_filesystem('puzzle-inputs/filesystem.txt')
+    # day7_pt2_answer = create_filesystem('puzzle-inputs/filesystem.txt')
+    # print(f'Day 7 Part 1 \n The first packet was received at character number {day7_pt1_answer}')
+    # print(f'Day 7 Part 2 \n The first message was received at character number {day7_pt2_answer}')

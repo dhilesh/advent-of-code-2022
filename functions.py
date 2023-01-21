@@ -1,3 +1,4 @@
+import json
 def read_input(filename):
     with open(filename,'r') as f:
         data = f.readlines()
@@ -119,3 +120,39 @@ def packet_marker(file, num_distinct_chars=0):
         window = datastream[i-num_distinct_chars:i]
         if len(set(window)) == num_distinct_chars:
             return i
+
+def create_filesystem(file):
+    filesystem = {}
+    prev_dir = ''
+    curr_dir = ''
+    list_mode, cd_mode = False, False
+    for line in read_input(file)[1:]:
+        parts = line.strip().split(' ')
+
+        # if cd and dir name 
+        if parts[1] == 'cd' and parts[2] != '..':
+            curr_dir += parts[2] + '/' # keep track of current dir
+            print('curr dir is:', curr_dir)
+            continue
+
+        # if cd and not dir name 
+        if parts[1] == 'cd' and parts[2] == '..':
+            curr_dir = '/'.join(curr_dir.split('/')[:-2]) # remove folder from curr dir
+            print('new curr dir is', curr_dir)
+
+        # if list function
+        if parts[1] == 'ls': # skip line
+            continue
+
+        # deal with output from list function
+        if parts[0] == 'dir':
+            filesystem[parts[1]] = {} # create a new dir
+            prev_dir = parts[1] # keep track of prev dir
+        else:
+            filesystem[prev_dir][parts[1]] = parts[0] # append file to dir
+    
+    print(json.dumps(filesystem, indent=3))
+    # NEW APPROACH SHOULD BE TO KEEP A STRING OF EACH FILENAME AND THE SUBFOLDER
+    # JUST LIKE YOU HAVE IN BLOB STORAGE
+    # CAN MAKE USE OF THE CURR DIR TRACKING TO PREPEND TO THE FLIENAME
+    # MAKES SENSE CAUSE WE ONLY CARE ABOUT THE FOLDERS WITH FILES IN THEM, NOT THE EMPTY ONES

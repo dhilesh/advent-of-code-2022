@@ -1,5 +1,5 @@
 # input files
-puzzle-inputs/*
+puzzle-inputs
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
